@@ -1,0 +1,18 @@
+[package]
+name = "test_rs_py"
+version = "0.1.0"
+authors = ["ferris"]
+
+[lib]
+name = "rust_python_example"
+crate-type = ["dylib"]
+
+[dependencies.cpython]
+git = "https://github.com/dgrunwald/rust-cpython.git"
+rev = "a23b5b591060574de91067d77081f56082aa21b2"
+default-features = false
+features = ["python27-sys"]
+
+[dependencies.interpolate_idents]
+git = "https://github.com/dgrunwald/interpolate_idents.git"
+rev = "2215f3b3a664b202a9fcf6ca34efbdef8274c59c"
