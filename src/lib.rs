@@ -7,19 +7,19 @@ use cpython::{PyResult, Python, PyTuple, PyDict, PyErr, exc, ToPyObject, PythonO
 
 mod fib {
 
-pub fn fib(n : u64) -> u64 {
-    if n < 2 {
-        return 1
+    pub fn fib(n : u64) -> u64 {
+        if n < 2 {
+            return 1
+        }
+        let mut prev1 = 1;
+        let mut prev2 = 1;
+        for _ in 1..n {
+            let new = prev1 + prev2;
+            prev2 = prev1;
+            prev1 = new;
+        }
+        prev1
     }
-    let mut prev1 = 1;
-    let mut prev2 = 1;
-    for _ in 1..n {
-        let new = prev1 + prev2;
-        prev2 = prev1;
-        prev1 = new;
-    }
-    prev1
-}
 }
 
 py_module_initializer!(librust_python_example, |_py, m| {
